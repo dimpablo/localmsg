@@ -72,11 +72,12 @@ jobs:
         working-directory: ${{ env.APK_BUILD_DIR }}/app
         run: flutter pub get
 
-      - name: Build APK
+
+      - name: Build Universal APK (Fat APK)
         working-directory: ${{ env.APK_BUILD_DIR }}/app
         run: flutter build apk --release
 
-      - name: Build Universal APK (Fat APK)
+      - name: Upload Universal APK
         uses: actions/upload-artifact@v6
         with:
           name: apk-result
